@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="001" author="aidash">
+        <!-- Users table -->
+        <createTable tableName="users">
+            <column name="id" type="uuid" defaultValueComputed="gen_random_uuid()">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="email" type="varchar(100)">
+                <constraints unique="true" nullable="false" />
+            </column>
+            <column name="password" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="first_name" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="last_name" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="company_name" type="varchar(100)" />
+            <column name="phone_number" type="varchar(20)">
+                <constraints unique="true" nullable="false" />
+            </column>
+            <column name="created_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+            <column name="updated_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <!-- Roles table -->
+        <createTable tableName="roles">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints unique="true" nullable="false" />
+            </column>
+            <column name="created_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+            <column name="updated_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <!-- User-Roles mapping table -->
+        <createTable tableName="user_roles">
+            <column name="user_id" type="uuid">
+                <constraints nullable="false" foreignKeyName="fk_user_roles_user"
+                    references="users(id)" />
+            </column>
+            <column name="role_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_user_roles_role"
+                    references="roles(id)" />
+            </column>
+        </createTable>
+
+        <!-- Add primary key to user_roles -->
+        <addPrimaryKey tableName="user_roles" columnNames="user_id, role_id" />
+
+        <!-- Insert default roles -->
+        <insert tableName="roles">
+            <column name="name" value="ROLE_USER" />
+        </insert>
+        <insert tableName="roles">
+            <column name="name" value="ROLE_ADMIN" />
+        </insert>
+    </changeSet>
+</databaseChangeLog> 
