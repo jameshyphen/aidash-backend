@@ -1,0 +1,10 @@
+spring:
+  graphql:
+    graphiql:
+      enabled: true
+    schema:
+      locations: classpath*:graphql/** # Picks up the schema's from the aidash-schemas jar's resources
+
+logging:
+  level:
+    org.springframework.graphql: DEBUG

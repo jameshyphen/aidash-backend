@@ -8,4 +8,4 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = "com.aidash.repository")
 @EntityScan(basePackages = "com.aidash.repository.entity")
 public class AiDashRepositoryConfiguration {
-} 
+}

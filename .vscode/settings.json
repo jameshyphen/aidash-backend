@@ -1,14 +1,14 @@
 {
-    "java.home": "/usr/lib/jvm/java-21-openjdk-amd64",
-    "java.compile.nullAnalysis.mode": "automatic",
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "[java]": {
-        "editor.defaultFormatter": "redhat.java"
-    },
-    "java.format.settings.url": "eclipse-formatter.xml",
-    "java.configuration.updateBuildConfiguration": "automatic",
-    "[xml]": {
-        "editor.defaultFormatter": "redhat.vscode-xml"
-    }
+  "java.home": "/usr/lib/jvm/java-17-openjdk-amd64",
+  "java.compile.nullAnalysis.mode": "automatic",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "java.format.settings.url": "eclipse-formatter.xml",
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  }
 }

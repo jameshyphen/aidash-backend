@@ -13,7 +13,7 @@ The project is organized into multiple modules:
 
 ## Technology Stack
 
-- Java 21
+- Java 17
 - Spring Boot 3.2.3
 - Spring Data JPA
 - Spring Security
@@ -24,7 +24,7 @@ The project is organized into multiple modules:
 
 ## Prerequisites
 
-- Java 21
+- Java 17
 - Maven 3.8+
 - PostgreSQL 15+
 
